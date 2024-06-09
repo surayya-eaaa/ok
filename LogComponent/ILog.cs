@@ -8,7 +8,7 @@
         void StopWithoutFlush();
 
         /// <summary>
-        /// Stop the logging. The call will not return until all all logs have been written to Log.
+        /// Stop the logging. The call will not return until all logs have been written to Log.
         /// </summary>
         void StopWithFlush();
 

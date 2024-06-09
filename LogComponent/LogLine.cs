@@ -4,35 +4,18 @@ namespace LogComponent
 {
     public class LogLine
     {
-   
-        public LogLine()
-        {
-            this.Text = "";
-        }
-        public virtual string LineText()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            if (this.Text.Length > 0)
-            {
-                sb.Append(this.Text);
-                sb.Append(". ");
-            }
-
-            sb.Append(this.CreateLineText());
-
-            return sb.ToString();
-        }
-
-        public virtual string CreateLineText()
-        {
-            return "";
-        }
-
-
         public string Text { get; set; }
 
-        public virtual DateTime Timestamp { get; set; }
-  
+        public DateTime Timestamp { get;}
+
+        public LogLine(string text)
+        {
+            this.Text = text;
+            this.Timestamp = DateTime.Now;
+        }
+        public string CreateLineText()
+        {
+            return Timestamp.ToString().PadRight(25, ' ') + "\t" + Text.ToString().PadRight(15, ' ') + "\t" + Environment.NewLine;
+        }
     }
 }
